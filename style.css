@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --bg-dark: #0a0b10;
+    --card-bg: rgba(23, 25, 35, 0.7);
+    --primary: #6366f1; /* Indigo vibrant */
+    --primary-glow: rgba(99, 102, 241, 0.4);
+    --accent: #f43f5e; /* Rose */
+    --success: #10b981;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --gradient-hero: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    background-image: 
+        radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 100% 100%, rgba(244, 63, 94, 0.1) 0%, transparent 40%);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Navbar */
+nav {
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+    color: var(--text-main);
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+/* Hero Section */
+.hero {
+    padding: 100px 0 60px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+/* Roadmap Grid */
+.roadmap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 32px;
+    padding-bottom: 100px;
+}
+
+.step-card {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 32px;
+    padding: 40px;
+    position: relative;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+}
+
+.step-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px var(--primary-glow);
+}
+
+.step-number {
+    position: absolute;
+    top: -20px;
+    right: 40px;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.03);
+    pointer-events: none;
+}
+
+.icon-box {
+    width: 64px;
+    height: 64px;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: var(--primary);
+}
+
+.step-card h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.step-card p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 24px;
+}
+
+.action-list {
+    list-style: none;
+}
+
+.action-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.action-list li i {
+    color: var(--primary);
+    margin-top: 4px;
+}
+
+/* Financial Calculator Section */
+.finances-section {
+    background: rgba(99, 102, 241, 0.05);
+    border-radius: 40px;
+    padding: 60px;
+    margin-bottom: 100px;
+    border: 1px dashed var(--primary-glow);
+}
+
+.finance-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.finance-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.calc-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-field label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.input-field input {
+    background: rgba(0,0,0,0.2);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 14px;
+    color: white;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.input-field input:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.results-display {
+    background: rgba(0,0,0,0.3);
+    border-radius: 24px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+}
+
+.stat-item h4 {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.profit { color: var(--success); }
+
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 3rem; }
+    .finance-grid { grid-template-columns: 1fr; }
+}
