@@ -1,0 +1,34 @@
+# Google Antigravity Quality Gate Configuration
+pipeline:
+  name: Dropship Blueprint Quality Audit
+  on: [push, pull_request]
+
+environments:
+  node_env:
+    image: node:20-slim
+    packages:
+      - npm install
+
+steps:
+  - name: Build & Install
+    run: |
+      npm ci
+
+  - name: Unit Tests (TDD Mandate)
+    run: |
+      npm test
+    failure_policy:
+      action: "terminate_immediately"
+      on_failure:
+        - type: "log"
+          message: "TDD Quality Gate Failed: Financial logic variance detected."
+
+  - name: Linting
+    run: |
+      # Add linting in future if needed
+      echo "Linting pass"
+
+outputs:
+  - path: coverage/
+    type: artifact
+    description: "TDD Coverage Report"

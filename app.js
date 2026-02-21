@@ -10,22 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const marginDisplay = document.getElementById('margin-val');
 
     function calculateFinances() {
-        const sale = parseFloat(saleInput.value) || 0;
-        const cogs = parseFloat(cogsInput.value) || 0;
-        const cpa = parseFloat(cpaInput.value) || 0;
-        const feesPct = (parseFloat(feesInput.value) || 0) / 100;
-        const fixed = parseFloat(fixedInput.value) || 0;
+        const metrics = calculateMetrics({
+            sale: parseFloat(saleInput.value) || 0,
+            cogs: parseFloat(cogsInput.value) || 0,
+            cpa: parseFloat(cpaInput.value) || 0,
+            feesPct: parseFloat(feesInput.value) || 0,
+            fixed: parseFloat(fixedInput.value) || 0
+        });
 
-        const transactionFee = sale * feesPct;
-        const totalVariableCost = cogs + cpa + transactionFee;
-        const netProfit = sale - totalVariableCost;
-        
-        const margin = sale > 0 ? (netProfit / sale) * 100 : 0;
-        
-        // Break-even ROAS = Revenue / (Revenue - Gross Profit) 
-        // Or simply: Sale Price / (Sale Price - COGS - Fees)
-        const grossProfit = sale - cogs - transactionFee;
-        const breakEvenROAS = grossProfit > 0 ? sale / grossProfit : 0;
+        const { netProfit, breakEvenROAS, margin } = metrics;
 
         // Update UI with animations
         animateValue(profitDisplay, netProfit, '$');

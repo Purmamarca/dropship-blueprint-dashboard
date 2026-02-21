@@ -1,0 +1,24 @@
+{
+  "name": "dropship-blueprint-dashboard",
+  "version": "1.0.0",
+  "description": "A premium, cinematic web dashboard providing a high-intent roadmap and financial lattice for scaling dropshipping businesses.",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Purmamarca/dropship-blueprint-dashboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Purmamarca/dropship-blueprint-dashboard/issues"
+  },
+  "homepage": "https://github.com/Purmamarca/dropship-blueprint-dashboard#readme",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
